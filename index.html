@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ardanu Egitya Ash Shafah — Portofolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ============ HEADER / NAVIGASI ============ -->
+    <header class="site-header">
+      <span class="logo">Ard.</span>
+      <nav>
+        <a href="#tentang">Tentang</a>
+        <a href="#keahlian">Keahlian</a>
+        <a href="#karya">Karya</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <p class="hero-eyebrow">Portofolio</p>
+      <h1>Ardanu Egitya Ash Shafah</h1>
+      <p class="hero-role">Mobile Developer and Backend Developer</p>
+      <p class="hero-lead">
+        Membangun aplikasi mobile dan layanan backend dari ujung ke ujung — dari
+        rancangan antarmuka di Flutter hingga API yang menopangnya di .NET.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#karya">Lihat Karya</a>
+        <!-- Ganti href di bawah dengan link CV kamu (misal file cv.pdf di folder yang sama) -->
+        <a class="btn-secondary" href="cv.pdf">Unduh CV</a>
+      </div>
+    </section>
+
+    <!-- ============ TENTANG / INFORMASI PRIBADI ============ -->
+    <section id="tentang" class="about">
+      <div class="about-photo">
+        <img
+          src="foto-formal.jpeg"
+          alt="Ardanu Egitya Ash Shafah"
+          onerror="this.style.display = 'none'"
+        />
+      </div>
+      <div class="about-text">
+        <h2>Tentang Saya</h2>
+        <p>
+          Saya seorang pengembang perangkat lunak yang berfokus pada
+          pengembangan aplikasi mobile dan backend. Berpengalaman membangun
+          sistem menggunakan Flutter di sisi mobile dan .NET di sisi server,
+          dengan perhatian pada kode yang rapi, performa yang stabil, dan solusi
+          yang benar-benar menjawab kebutuhan pengguna. Berbasis di Surabaya dan
+          terbuka untuk peluang kerja maupun kolaborasi baru.
+        </p>
+
+        <ul class="info-list">
+          <li><span>Nama</span>Ardanu Egitya Ash Shafah</li>
+          <li><span>Lokasi</span>Surabaya, Indonesia</li>
+          <li>
+            <span>Email</span
+            ><a href="mailto:ardanuash@gmail.com">ardanuash@gmail.com</a>
+          </li>
+          <li><span>Telepon</span>+62 896-9999-7929</li>
+        </ul>
+
+        <div class="social-links">
+          <a
+            href="https://www.linkedin.com/in/ardanu-egitya-ash-shafah-618262323/"
+            >LinkedIn</a
+          >
+          <a href="https://github.com/Elight-dotcom">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KEAHLIAN ============ -->
+    <section id="keahlian" class="skills">
+      <h2>Keahlian</h2>
+
+      <!-- Sesuaikan daftar di bawah dengan kemampuanmu -->
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Mobile</h3>
+          <ul>
+            <li>Flutter</li>
+            <li>Dart</li>
+            <li>Android</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <ul>
+            <li>.NET / C#</li>
+            <li>REST API</li>
+            <li>SQL Database</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Tools &amp; Lainnya</h3>
+          <ul>
+            <li>Git</li>
+            <li>Postman</li>
+            <li>Figma</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KARYA / PORTOFOLIO ============ -->
+    <section id="karya" class="portfolio">
+      <h2>Karya</h2>
+
+      <div class="portfolio-grid">
+        <!-- ======================================================
+           CARA TAMBAH KARYA BARU:
+           1. Salin (copy) seluruh blok <article class="project-card"> ... </article> di bawah ini.
+           2. Tempel (paste) tepat di atas atau di bawah blok yang sudah ada, masih di dalam <div class="portfolio-grid">.
+           3. Ganti gambar, judul, kategori, deskripsi, dan link sesuai karyamu.
+           ====================================================== -->
+
+        <article class="project-card">
+          <div class="project-image">
+            <img
+              src="project-image/warehaus.png"
+              alt="WareHaus - Warehouse Management System"
+              onerror="this.style.display = 'none'"
+            />
+          </div>
+          <p class="project-tag">Mobile App</p>
+          <h3>WareHaus - Warehouse Management System</h3>
+          <p class="project-desc">
+            Berkontribusi dalam tim pengembangan sistem manajemen gudang,
+            membangun fitur mobile menggunakan Flutter dan layanan backend
+            menggunakan .NET untuk mendukung pengelolaan inventaris, pemesanan,
+            dan pelacakan barang secara efisien.
+          </p>
+          <a
+            class="project-link"
+            href="https://play.google.com/store/apps/details?id=com.warehaus&hl=id"
+            >Lihat detail</a
+          >
+        </article>
+
+        <!-- Tambahkan blok <article class="project-card"> baru di sini -->
+      </div>
+    </section>
+
+    <!-- ============ KONTAK / FOOTER ============ -->
+    <footer id="kontak" class="site-footer">
+      <h2>Mari terhubung</h2>
+      <p>Tertarik bekerja sama atau sekadar mau ngobrol? Kirim email ke</p>
+      <a class="footer-email" href="mailto:ardanuash@gmail.com"
+        >ardanuash@gmail.com</a
+      >
+      <p class="footer-note">
+        © 2026 Ardanu Egitya Ash Shafah. Semua hak dilindungi.
+      </p>
+    </footer>
+  </body>
+</html>
