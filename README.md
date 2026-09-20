@@ -2,7 +2,7 @@
 
 Situs portofolio pribadi yang menampilkan profil, keahlian, dan karya sebagai Mobile Developer & Backend Developer.
 
-🔗 **Live demo:** [portofolio-phi-sooty-74.vercel.app](https://portofolio-phi-sooty-74.vercel.app/)
+🔗 **Live demo:** [elight-dotcom.github.io/nama-repo](https://elight-dotcom.github.io/nama-repo/) — ganti `nama-repo` dengan nama repo ini setelah GitHub Pages aktif
 
 ## Tentang
 
@@ -21,7 +21,7 @@ Website statis satu halaman dengan tema biru-kuning, animasi ringan, dan struktu
 - [Tailwind CSS](https://tailwindcss.com/) (via CDN) untuk utility layer
 - CSS3 kustom (`style.css`) untuk animasi, blob, chip, dan timeline pendidikan
 - Vanilla JavaScript (`script.js`) untuk menu mobile, reveal on scroll, dan filter project
-- Deploy otomatis via [Vercel](https://vercel.com/)
+- Deploy via [GitHub Pages](https://pages.github.com/)
 
 ## Struktur Proyek
 
@@ -34,9 +34,7 @@ Website statis satu halaman dengan tema biru-kuning, animasi ringan, dan struktu
 ├── project-image/
 │   └── warehaus.png
 └── education-logo/
-    ├── logo-1.png
-    ├── logo-2.png
-    └── logo-3.png
+    └── pens.png
 ```
 
 ## Menjalankan Secara Lokal
@@ -55,17 +53,18 @@ Lalu buka `http://localhost:5500` di browser.
 
 ## Deployment
 
-Proyek ini di-deploy menggunakan **Vercel**. Setiap push ke branch utama akan otomatis men-trigger deployment baru.
+Proyek ini di-deploy menggunakan **GitHub Pages**. Setiap push ke branch yang dipilih sebagai sumber Pages akan otomatis memperbarui situs.
 
-- **URL saat ini:** `portofolio-phi-sooty-74.vercel.app`
+- **URL saat ini:** `https://elight-dotcom.github.io/nama-repo/` (atau `https://elight-dotcom.github.io/` jika repo ini diberi nama persis `elight-dotcom.github.io`)
 - **Custom domain:** belum digunakan — akan ditambahkan menyusul jika sudah tersedia
 
-### Cara deploy sendiri
+### Cara mengaktifkan GitHub Pages
 
-1. Fork/clone repo ini
-2. Import repo ke [Vercel](https://vercel.com/new)
-3. Pilih framework preset **Other** (karena static HTML)
-4. Deploy
+1. Push seluruh isi repo ini ke GitHub (pastikan `index.html` ada di root, atau di folder yang akan dipilih sebagai sumber)
+2. Buka repo di GitHub → **Settings** → **Pages**
+3. Pada **Build and deployment**, pilih **Source: Deploy from a branch**
+4. Pilih branch (misalnya `main`) dan folder (`/root` atau `/docs`), lalu **Save**
+5. Tunggu beberapa menit, situs akan tersedia di URL yang muncul di halaman Pages tersebut
 
 ## Menambahkan Project / Produk Baru
 
@@ -73,11 +72,7 @@ Buka `index.html`, cari `<div id="project-grid">`, lalu salin satu blok `<articl
 
 ## Mengisi Riwayat Pendidikan
 
-Cari `<ol class="edu-timeline">` di `index.html`. Untuk tiap `<li class="edu-item">`:
-
-1. Ganti `href="#"` dengan tautan resmi institusi.
-2. Ganti `src` gambar dengan file logo di folder `education-logo/`.
-3. Ganti teks `title`, `alt`, dan `<p class="edu-caption">` dengan nama/jenjang institusi.
+Cari `<div class="edu-single">` di `index.html`, lalu ganti `src="education-logo/pens.png"` dengan file logo resmi PENS (taruh di folder `education-logo/`). Link sudah mengarah ke `https://www.pens.ac.id/`.
 
 ## Mengisi Instagram
 
