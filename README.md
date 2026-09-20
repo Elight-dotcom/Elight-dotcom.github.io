@@ -6,19 +6,21 @@ Situs portofolio pribadi yang menampilkan profil, keahlian, dan karya sebagai Mo
 
 ## Tentang
 
-Website statis satu halaman yang berisi:
+Website statis satu halaman dengan tema biru-kuning, animasi ringan, dan struktur berikut:
 
-- **Hero** — perkenalan singkat dan tombol aksi (lihat karya / unduh CV)
-- **Tentang** — profil, info kontak, dan tautan sosial (LinkedIn, GitHub)
-- **Keahlian** — Mobile (Flutter, Dart, Android), Backend (.NET/C#, REST API, SQL), Tools (Git, Postman, Figma)
-- **Karya** — daftar proyek yang pernah dikerjakan
-- **Kontak** — cara menghubungi
+- **Hero** — foto besar, status ketersediaan, dan tombol aksi (lihat project / unduh CV / hubungi)
+- **Tentang** — narasi profil + kartu info kontak singkat
+- **Keahlian** — tag-cloud fleksibel per kategori (Mobile, Backend, Tools), ukuran chip mengikuti level penguasaan
+- **Project & Produk** — kartu proyek dengan filter kategori bahasa/teknologi (Flutter, Dart, .NET, C#, REST API)
+- **Riwayat Pendidikan** — timeline logo institusi saja, masing-masing ditautkan ke laman resminya
+- **Kontak** — kartu ikon untuk Email, WhatsApp, GitHub, LinkedIn, Instagram, dan unduh CV
 
 ## Teknologi
 
 - HTML5
-- CSS3 (`style.css`)
-- Vanilla JavaScript (bila ada)
+- [Tailwind CSS](https://tailwindcss.com/) (via CDN) untuk utility layer
+- CSS3 kustom (`style.css`) untuk animasi, blob, chip, dan timeline pendidikan
+- Vanilla JavaScript (`script.js`) untuk menu mobile, reveal on scroll, dan filter project
 - Deploy otomatis via [Vercel](https://vercel.com/)
 
 ## Struktur Proyek
@@ -27,9 +29,14 @@ Website statis satu halaman yang berisi:
 .
 ├── index.html
 ├── style.css
+├── script.js
 ├── cv.pdf
-└── project-image/
-    └── warehaus.png
+├── project-image/
+│   └── warehaus.png
+└── education-logo/
+    ├── logo-1.png
+    ├── logo-2.png
+    └── logo-3.png
 ```
 
 ## Menjalankan Secara Lokal
@@ -60,9 +67,21 @@ Proyek ini di-deploy menggunakan **Vercel**. Setiap push ke branch utama akan ot
 3. Pilih framework preset **Other** (karena static HTML)
 4. Deploy
 
-## Menambahkan Karya Baru
+## Menambahkan Project / Produk Baru
 
-Buka `index.html`, cari bagian `<div class="portfolio-grid">`, lalu salin satu blok `<article class="project-card">...</article>` dan sesuaikan gambar, judul, kategori, deskripsi, dan link-nya.
+Buka `index.html`, cari `<div id="project-grid">`, lalu salin satu blok `<article class="project-card">...</article>`. Sesuaikan gambar, judul, deskripsi, link, `data-tags` (dipisah spasi, harus cocok dengan `data-filter` pada tombol di `#filter-bar`), dan `<span class="tag-chip">` di dalamnya. Hapus kartu placeholder bertuliskan "Project berikutnya menyusul" setelah kartu barunya cukup banyak.
+
+## Mengisi Riwayat Pendidikan
+
+Cari `<ol class="edu-timeline">` di `index.html`. Untuk tiap `<li class="edu-item">`:
+
+1. Ganti `href="#"` dengan tautan resmi institusi.
+2. Ganti `src` gambar dengan file logo di folder `education-logo/`.
+3. Ganti teks `title`, `alt`, dan `<p class="edu-caption">` dengan nama/jenjang institusi.
+
+## Mengisi Instagram
+
+Cari komentar `<!-- Ganti href dengan username Instagram kamu -->` di bagian Kontak pada `index.html`, lalu ganti `href="#"` dengan link profil Instagram.
 
 ## Kontak
 

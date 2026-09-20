@@ -4,158 +4,753 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ardanu Egitya Ash Shafah — Portofolio</title>
+    <meta
+      name="description"
+      content="Ardanu Egitya Ash Shafah — Mobile Developer & Backend Developer. Membangun aplikasi mobile dengan Flutter dan layanan backend dengan .NET."
+    />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Tailwind (utility layer) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                900: "#0A1B38",
+                800: "#102A54",
+                700: "#173568",
+                600: "#1F4180",
+              },
+              azure: {
+                600: "#2158E0",
+                500: "#3568EE",
+                400: "#5B8DF7",
+                300: "#9DBCFB",
+              },
+              amber: {
+                500: "#FFB800",
+                400: "#FFC530",
+                300: "#FFDD7A",
+                200: "#FFF0C2",
+              },
+              ink: "#0B1220",
+              paper: "#F6F8FC",
+            },
+            fontFamily: {
+              display: ['"Space Grotesk"', "sans-serif"],
+              body: ["Inter", "sans-serif"],
+              mono: ['"JetBrains Mono"', "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="font-body bg-paper text-ink antialiased">
     <!-- ============ HEADER / NAVIGASI ============ -->
-    <header class="site-header">
-      <span class="logo">Ard.</span>
-      <nav>
-        <a href="#tentang">Tentang</a>
-        <a href="#keahlian">Keahlian</a>
-        <a href="#karya">Karya</a>
-        <a href="#kontak">Kontak</a>
-      </nav>
+    <header
+      id="site-header"
+      class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+    >
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-[72px]">
+          <a href="#top" class="flex items-center gap-2 group">
+            <span class="logo-mark"
+              >Ard<span class="text-amber-400">.</span></span
+            >
+          </a>
+
+          <nav class="hidden md:flex items-center gap-1 nav-pill">
+            <a href="#tentang" class="nav-link">Tentang</a>
+            <a href="#keahlian" class="nav-link">Keahlian</a>
+            <a href="#project" class="nav-link">Project</a>
+            <a href="#pendidikan" class="nav-link">Pendidikan</a>
+            <a href="#kontak" class="nav-link">Kontak</a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a href="cv.pdf" class="hidden sm:inline-flex btn-ghost"
+              >Unduh CV</a
+            >
+            <button
+              id="menu-toggle"
+              class="md:hidden btn-icon"
+              aria-label="Buka menu"
+              aria-expanded="false"
+            >
+              <svg
+                id="icon-burger"
+                class="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+              <svg
+                id="icon-close"
+                class="w-5 h-5 hidden"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              >
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu mobile -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-navy-900 border-t border-white/10"
+      >
+        <nav class="flex flex-col px-6 py-4 gap-1">
+          <a href="#tentang" class="nav-link-mobile">Tentang</a>
+          <a href="#keahlian" class="nav-link-mobile">Keahlian</a>
+          <a href="#project" class="nav-link-mobile">Project</a>
+          <a href="#pendidikan" class="nav-link-mobile">Pendidikan</a>
+          <a href="#kontak" class="nav-link-mobile">Kontak</a>
+          <a href="cv.pdf" class="nav-link-mobile text-amber-300">Unduh CV</a>
+        </nav>
+      </div>
     </header>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <p class="hero-eyebrow">Portofolio</p>
-      <h1>Ardanu Egitya Ash Shafah</h1>
-      <p class="hero-role">Mobile Developer and Backend Developer</p>
-      <p class="hero-lead">
-        Membangun aplikasi mobile dan layanan backend dari ujung ke ujung — dari
-        rancangan antarmuka di Flutter hingga API yang menopangnya di .NET.
-      </p>
-      <div class="hero-actions">
-        <a class="btn-primary" href="#karya">Lihat Karya</a>
-        <!-- Ganti href di bawah dengan link CV kamu (misal file cv.pdf di folder yang sama) -->
-        <a class="btn-secondary" href="cv.pdf">Unduh CV</a>
-      </div>
-    </section>
+    <main id="top">
+      <!-- ============ HERO ============ -->
+      <section
+        class="hero-section relative overflow-hidden bg-navy-900 text-white"
+      >
+        <div class="blob-a"></div>
+        <div class="blob-b"></div>
+        <div class="grid-overlay"></div>
 
-    <!-- ============ TENTANG / INFORMASI PRIBADI ============ -->
-    <section id="tentang" class="about">
-      <div class="about-photo">
-        <img
-          src="foto-formal.jpeg"
-          alt="Ardanu Egitya Ash Shafah"
-          onerror="this.style.display = 'none'"
-        />
-      </div>
-      <div class="about-text">
-        <h2>Tentang Saya</h2>
-        <p>
-          Saya seorang pengembang perangkat lunak yang berfokus pada
-          pengembangan aplikasi mobile dan backend. Berpengalaman membangun
-          sistem menggunakan Flutter di sisi mobile dan .NET di sisi server,
-          dengan perhatian pada kode yang rapi, performa yang stabil, dan solusi
-          yang benar-benar menjawab kebutuhan pengguna. Berbasis di Surabaya dan
-          terbuka untuk peluang kerja maupun kolaborasi baru.
-        </p>
+        <div
+          class="max-w-6xl mx-auto px-5 sm:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28 relative"
+        >
+          <div class="grid md:grid-cols-[1.1fr_0.9fr] gap-14 items-center">
+            <!-- Teks -->
+            <div class="reveal" data-reveal>
+              <span class="status-chip">
+                <span class="dot-live"></span>
+                Terbuka untuk kolaborasi baru
+              </span>
 
-        <ul class="info-list">
-          <li><span>Nama</span>Ardanu Egitya Ash Shafah</li>
-          <li><span>Lokasi</span>Surabaya, Indonesia</li>
-          <li>
-            <span>Email</span
-            ><a href="mailto:ardanuash@gmail.com">ardanuash@gmail.com</a>
-          </li>
-          <li><span>Telepon</span>+62 896-9999-7929</li>
-        </ul>
+              <h1
+                class="mt-6 font-display font-semibold text-[2.6rem] leading-[1.05] sm:text-6xl sm:leading-[1.05]"
+              >
+                Ardanu Egitya<br />
+                Ash Shafah
+              </h1>
 
-        <div class="social-links">
+              <p
+                class="mt-5 font-display text-xl sm:text-2xl text-amber-300 wavy-underline inline-block"
+              >
+                Mobile Developer &amp; Backend Developer
+              </p>
+
+              <p
+                class="mt-5 max-w-md text-white/70 text-[15px] sm:text-base leading-relaxed"
+              >
+                Membangun aplikasi mobile dan layanan backend dari ujung ke
+                ujung — dari antarmuka yang dirancang di Flutter, sampai API
+                yang menopangnya di .NET.
+              </p>
+
+              <div class="mt-8 flex flex-wrap items-center gap-3">
+                <a href="#project" class="btn-primary">Lihat Project</a>
+                <a href="cv.pdf" class="btn-outline">Unduh CV</a>
+                <a href="#kontak" class="btn-text">
+                  Hubungi saya
+                  <svg
+                    class="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Foto besar -->
+            <div
+              class="relative reveal reveal-delay-1 flex justify-center md:justify-end"
+              data-reveal
+            >
+              <div class="hero-photo-wrap">
+                <div class="hero-photo-ring"></div>
+                <img
+                  src="foto-formal.jpeg"
+                  alt="Foto Ardanu Egitya Ash Shafah"
+                  class="hero-photo"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+                <span class="badge-float badge-float-a">Flutter</span>
+                <span class="badge-float badge-float-b">.NET / C#</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#tentang" class="scroll-cue" aria-label="Gulir ke bawah">
+          <svg
+            class="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <path d="M12 4v16M6 14l6 6 6-6" />
+          </svg>
+        </a>
+      </section>
+
+      <!-- ============ TENTANG ============ -->
+      <section id="tentang" class="section-pad">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8">
+          <div class="section-head reveal" data-reveal>
+            <h2 class="section-title">Tentang Saya</h2>
+          </div>
+
+          <div class="mt-10 grid lg:grid-cols-[1.3fr_1fr] gap-12 items-start">
+            <div class="reveal" data-reveal>
+              <p class="text-lg leading-relaxed text-ink/80">
+                Saya seorang pengembang perangkat lunak yang fokus di dua sisi
+                sekaligus:
+                <span class="font-semibold text-navy-800">aplikasi mobile</span>
+                dan
+                <span class="font-semibold text-navy-800">layanan backend</span
+                >. Berpengalaman membangun sistem menggunakan Flutter di sisi
+                mobile dan .NET di sisi server, dengan perhatian pada kode yang
+                rapi, performa yang stabil, dan solusi yang benar-benar menjawab
+                kebutuhan pengguna.
+              </p>
+              <p class="mt-4 text-lg leading-relaxed text-ink/80">
+                Bagi saya, mobile dan backend bukan dua dunia terpisah —
+                memahami keduanya membuat saya bisa merancang fitur yang masuk
+                akal dari antarmuka sampai basis data. Berbasis di Surabaya dan
+                terbuka untuk peluang kerja maupun kolaborasi proyek baru.
+              </p>
+
+              <div class="mt-8 flex flex-wrap gap-3">
+                <span class="pill-tag">🇮🇩 Surabaya, Indonesia</span>
+                <span class="pill-tag">Full-stack mobile × backend</span>
+                <span class="pill-tag">Siap remote / hybrid</span>
+              </div>
+            </div>
+
+            <div class="about-card reveal reveal-delay-1" data-reveal>
+              <ul class="divide-y divide-navy-900/10">
+                <li class="about-row">
+                  <span class="about-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="about-label">Lokasi</p>
+                    <p class="about-value">Surabaya, Indonesia</p>
+                  </div>
+                </li>
+                <li class="about-row">
+                  <span class="about-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <path d="M3 7l9 6 9-6" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="about-label">Email</p>
+                    <a
+                      href="mailto:ardanuash@gmail.com"
+                      class="about-value hover:text-azure-600"
+                      >ardanuash@gmail.com</a
+                    >
+                  </div>
+                </li>
+                <li class="about-row">
+                  <span class="about-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="about-label">Telepon / WhatsApp</p>
+                    <a
+                      href="https://wa.me/6289699997929"
+                      target="_blank"
+                      rel="noopener"
+                      class="about-value hover:text-azure-600"
+                      >+62 896-9999-7929</a
+                    >
+                  </div>
+                </li>
+                <li class="about-row">
+                  <span class="about-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 6v6l4 2" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="about-label">Status</p>
+                    <p class="about-value">
+                      Terbuka untuk peluang kerja &amp; kolaborasi
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ KEAHLIAN ============ -->
+      <section id="keahlian" class="section-pad bg-white">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8">
+          <div class="section-head reveal" data-reveal>
+            <h2 class="section-title">Keahlian</h2>
+            <p class="section-sub">
+              Ukuran setiap tag mengikuti seberapa sering dipakai sehari-hari.
+            </p>
+          </div>
+
+          <!-- 
+            CARA UBAH LEVEL SKILL:
+            Tambahkan data-level="1" (dasar), "2" (menengah), atau "3" (mahir) pada setiap <span class="chip">.
+            Ukuran & ketebalan chip menyesuaikan otomatis lewat CSS.
+          -->
+          <div class="mt-10 grid md:grid-cols-3 gap-8">
+            <div class="skill-group reveal" data-reveal>
+              <h3 class="skill-group-title">
+                <span class="skill-dot bg-azure-500"></span>Mobile
+              </h3>
+              <div class="chip-cloud">
+                <span class="chip" data-level="3">Flutter</span>
+                <span class="chip" data-level="3">Dart</span>
+                <span class="chip" data-level="2">Android</span>
+              </div>
+            </div>
+            <div class="skill-group reveal reveal-delay-1" data-reveal>
+              <h3 class="skill-group-title">
+                <span class="skill-dot bg-amber-400"></span>Backend
+              </h3>
+              <div class="chip-cloud">
+                <span class="chip" data-level="3">.NET / C#</span>
+                <span class="chip" data-level="3">Laravel</span>
+                <span class="chip" data-level="3">REST API</span>
+                <span class="chip" data-level="2">Express.js</span>
+                <span class="chip" data-level="2">SQL Database</span>
+              </div>
+            </div>
+            <div class="skill-group reveal reveal-delay-2" data-reveal>
+              <h3 class="skill-group-title">
+                <span class="skill-dot bg-navy-700"></span>Tools &amp; Lainnya
+              </h3>
+              <div class="chip-cloud">
+                <span class="chip" data-level="3">Git</span>
+                <span class="chip" data-level="2">Postman</span>
+                <span class="chip" data-level="2">Docker</span>
+                <span class="chip" data-level="1">Figma</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROJECT / PRODUK ============ -->
+      <section id="project" class="section-pad">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8">
+          <div class="section-head reveal" data-reveal>
+            <h2 class="section-title">Project &amp; Produk</h2>
+            <p class="section-sub">
+              Filter berdasarkan bahasa atau teknologi yang dipakai.
+            </p>
+          </div>
+
+          <!-- Filter kategori: tambahkan tombol baru jika ada bahasa/teknologi baru -->
+          <div
+            class="mt-8 flex flex-wrap gap-2 reveal"
+            data-reveal
+            id="filter-bar"
+          >
+            <button class="filter-btn is-active" data-filter="all">
+              Semua
+            </button>
+            <button class="filter-btn" data-filter="flutter">Flutter</button>
+            <button class="filter-btn" data-filter="dotnet">.NET</button>
+            <button class="filter-btn" data-filter="typescript">
+              TypeScript
+            </button>
+          </div>
+
+          <!-- ======================================================
+             CARA TAMBAH PROJECT BARU:
+             1. Salin seluruh blok <article class="project-card"> ... </article> di bawah.
+             2. Tempel di dalam <div id="project-grid">, di atas atau bawah kartu lain.
+             3. Ganti gambar, judul, deskripsi, dan link.
+             4. Sesuaikan data-tags dengan kategori di filter di atas (pisahkan spasi),
+                lalu sesuaikan juga daftar <span class="tag-chip"> di dalam kartu.
+             ====================================================== -->
+          <div id="project-grid" class="mt-8 grid md:grid-cols-2 gap-6">
+            <article
+              class="project-card reveal"
+              data-reveal
+              data-tags="flutter dotnet typescript"
+            >
+              <div class="project-media">
+                <img
+                  src="project-image/warehaus.png"
+                  alt="WareHaus - Warehouse Management System"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <div class="project-body">
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag-chip">Flutter</span>
+                  <span class="tag-chip">TypeScript</span>
+                  <span class="tag-chip"></span>
+                </div>
+                <h3 class="project-title">
+                  WareHaus — Warehouse Management System
+                </h3>
+                <p class="project-desc">
+                  Berkontribusi dalam tim pengembangan sistem manajemen gudang,
+                  membangun fitur mobile menggunakan Flutter dan layanan backend
+                  menggunakan .NET untuk mendukung pengelolaan inventaris,
+                  pemesanan, dan pelacakan barang secara efisien.
+                </p>
+                <a
+                  class="project-link"
+                  href="https://play.google.com/store/apps/details?id=com.warehaus&hl=id"
+                  target="_blank"
+                  rel="noopener"
+                  >Lihat di Play Store</a
+                >
+              </div>
+            </article>
+
+            <!-- Slot placeholder — hapus kartu ini setelah menambahkan project berikutnya -->
+            <article
+              class="project-card project-card--empty reveal reveal-delay-1"
+              data-reveal
+            >
+              <div
+                class="project-body flex flex-col items-center justify-center text-center h-full py-14"
+              >
+                <span class="empty-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                </span>
+                <p class="mt-3 font-display font-medium text-navy-800">
+                  Project berikutnya menyusul
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ RIWAYAT PENDIDIKAN ============ -->
+      <section id="pendidikan" class="section-pad bg-white">
+        <div class="max-w-6xl mx-auto px-5 sm:px-8">
+          <div class="section-head reveal" data-reveal>
+            <h2 class="section-title">Riwayat Pendidikan</h2>
+            <p class="section-sub">
+              Klik logo untuk membuka laman resmi institusi.
+            </p>
+          </div>
+
+          <!-- ======================================================
+             CARA GANTI LOGO PENDIDIKAN:
+             Ganti src gambar dengan file logo resmi (mis. education-logo/pens.png),
+             href sudah mengarah ke laman resmi PENS.
+             ====================================================== -->
+          <div class="mt-10 edu-single reveal" data-reveal>
+            <a
+              href="https://www.pens.ac.id/"
+              target="_blank"
+              rel="noopener"
+              class="edu-logo edu-logo--lg"
+              title="Politeknik Elektronika Negeri Surabaya (PENS)"
+            >
+              <img
+                src="Logo_PENS.png"
+                alt="Logo Politeknik Elektronika Negeri Surabaya (PENS)"
+                onerror="this.parentElement.classList.add('img-fallback')"
+              />
+            </a>
+            <p class="edu-caption edu-caption--lg">
+              Politeknik Elektronika Negeri Surabaya (PENS)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ KONTAK ============ -->
+      <section
+        id="kontak"
+        class="section-pad-lg bg-navy-900 text-white relative overflow-hidden"
+      >
+        <div class="blob-c"></div>
+        <div class="max-w-6xl mx-auto px-5 sm:px-8 relative">
+          <div class="max-w-xl reveal" data-reveal>
+            <h2 class="section-title text-white">Mari terhubung</h2>
+            <p class="mt-3 text-white/70 text-lg">
+              Tertarik bekerja sama, mau tanya-tanya soal project, atau sekadar
+              mau ngobrol soal Flutter dan .NET? Kontak lewat channel mana pun
+              di bawah ini.
+            </p>
+          </div>
+
+          <!-- Email -->
+          <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <a
+              href="mailto:ardanuash@gmail.com"
+              class="contact-card reveal"
+              data-reveal
+            >
+              <span class="contact-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+              </span>
+              <span>
+                <span class="contact-label">Email</span>
+                <span class="contact-value">ardanuash@gmail.com</span>
+              </span>
+            </a>
+
+            <!-- WhatsApp -->
+            <a
+              href="https://wa.me/6289699997929"
+              target="_blank"
+              rel="noopener"
+              class="contact-card reveal reveal-delay-1"
+              data-reveal
+            >
+              <span class="contact-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"
+                  />
+                </svg>
+              </span>
+              <span>
+                <span class="contact-label">WhatsApp</span>
+                <span class="contact-value">+62 896-9999-7929</span>
+              </span>
+            </a>
+
+            <!-- GitHub -->
+            <a
+              href="https://github.com/Elight-dotcom"
+              target="_blank"
+              rel="noopener"
+              class="contact-card reveal reveal-delay-2"
+              data-reveal
+            >
+              <span class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 .5C5.73.5.75 5.48.75 11.75c0 5.02 3.26 9.27 7.78 10.77.57.1.78-.25.78-.55v-1.94c-3.16.69-3.83-1.52-3.83-1.52-.52-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.73 2.65 1.23 3.3.94.1-.73.4-1.23.72-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.17-3.04-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.16a10.9 10.9 0 015.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.57.23 2.73.11 3.02.73.79 1.17 1.8 1.17 3.04 0 4.35-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.21.66.79.55A11.26 11.26 0 0023.25 11.75C23.25 5.48 18.27.5 12 .5z"
+                  />
+                </svg>
+              </span>
+              <span>
+                <span class="contact-label">GitHub</span>
+                <span class="contact-value">Elight-dotcom</span>
+              </span>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/ardanu-egitya-ash-shafah/"
+              target="_blank"
+              rel="noopener"
+              class="contact-card reveal"
+              data-reveal
+            >
+              <span class="contact-icon">
+                <i class="fa fa-linkedin-square" style="font-size: 24px"></i>
+              </span>
+              <span>
+                <span class="contact-label">LinkedIn</span>
+                <span class="contact-value">Ardanu Egitya Ash Shafah</span>
+              </span>
+            </a>
+
+            <!-- Ganti href dengan username Instagram kamu -->
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener"
+              class="contact-card reveal reveal-delay-1"
+              data-reveal
+            >
+              <span class="contact-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+              </span>
+              <span>
+                <span class="contact-label">Instagram</span>
+                <span class="contact-value">@username</span>
+              </span>
+            </a>
+
+            <a
+              href="cv.pdf"
+              class="contact-card contact-card--accent reveal reveal-delay-2"
+              data-reveal
+            >
+              <span class="contact-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 15V3M7 10l5 5 5-5" />
+                  <path d="M4 21h16" />
+                </svg>
+              </span>
+              <span>
+                <span class="contact-label">Curriculum Vitae</span>
+                <span class="contact-value">Unduh CV (PDF)</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="bg-navy-900 border-t border-white/10 text-white/60">
+      <div
+        class="max-w-6xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"
+      >
+        <p>© 2026 Ardanu Egitya Ash Shafah. Semua hak dilindungi.</p>
+        <div class="flex items-center gap-4">
+          <a
+            href="https://github.com/Elight-dotcom"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-amber-300 transition-colors"
+            >GitHub</a
+          >
           <a
             href="https://www.linkedin.com/in/ardanu-egitya-ash-shafah-618262323/"
+            target="_blank"
+            rel="noopener"
+            class="hover:text-amber-300 transition-colors"
             >LinkedIn</a
           >
-          <a href="https://github.com/Elight-dotcom">GitHub</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ KEAHLIAN ============ -->
-    <section id="keahlian" class="skills">
-      <h2>Keahlian</h2>
-
-      <!-- Sesuaikan daftar di bawah dengan kemampuanmu -->
-      <div class="skills-grid">
-        <div class="skill-group">
-          <h3>Mobile</h3>
-          <ul>
-            <li>Flutter</li>
-            <li>Dart</li>
-            <li>Android</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Backend</h3>
-          <ul>
-            <li>.NET / C#</li>
-            <li>REST API</li>
-            <li>SQL Database</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h3>Tools &amp; Lainnya</h3>
-          <ul>
-            <li>Git</li>
-            <li>Postman</li>
-            <li>Figma</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ KARYA / PORTOFOLIO ============ -->
-    <section id="karya" class="portfolio">
-      <h2>Karya</h2>
-
-      <div class="portfolio-grid">
-        <!-- ======================================================
-           CARA TAMBAH KARYA BARU:
-           1. Salin (copy) seluruh blok <article class="project-card"> ... </article> di bawah ini.
-           2. Tempel (paste) tepat di atas atau di bawah blok yang sudah ada, masih di dalam <div class="portfolio-grid">.
-           3. Ganti gambar, judul, kategori, deskripsi, dan link sesuai karyamu.
-           ====================================================== -->
-
-        <article class="project-card">
-          <div class="project-image">
-            <img
-              src="project-image/warehaus.png"
-              alt="WareHaus - Warehouse Management System"
-              onerror="this.style.display = 'none'"
-            />
-          </div>
-          <p class="project-tag">Mobile App</p>
-          <h3>WareHaus - Warehouse Management System</h3>
-          <p class="project-desc">
-            Berkontribusi dalam tim pengembangan sistem manajemen gudang,
-            membangun fitur mobile menggunakan Flutter dan layanan backend
-            menggunakan .NET untuk mendukung pengelolaan inventaris, pemesanan,
-            dan pelacakan barang secara efisien.
-          </p>
           <a
-            class="project-link"
-            href="https://play.google.com/store/apps/details?id=com.warehaus&hl=id"
-            >Lihat detail</a
+            href="mailto:ardanuash@gmail.com"
+            class="hover:text-amber-300 transition-colors"
+            >Email</a
           >
-        </article>
-
-        <!-- Tambahkan blok <article class="project-card"> baru di sini -->
+        </div>
       </div>
-    </section>
-
-    <!-- ============ KONTAK / FOOTER ============ -->
-    <footer id="kontak" class="site-footer">
-      <h2>Mari terhubung</h2>
-      <p>Tertarik bekerja sama atau sekadar mau ngobrol? Kirim email ke</p>
-      <a class="footer-email" href="mailto:ardanuash@gmail.com"
-        >ardanuash@gmail.com</a
-      >
-      <p class="footer-note">
-        © 2026 Ardanu Egitya Ash Shafah. Semua hak dilindungi.
-      </p>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
