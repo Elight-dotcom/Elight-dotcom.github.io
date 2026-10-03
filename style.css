@@ -629,19 +629,21 @@ body {
    PENDIDIKAN
    ========================================================= */
 .edu-timeline {
-  margin-top: 2.75rem;
+  margin: 2.75rem auto 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem 3rem;
   align-items: flex-start;
+  justify-content: center;
   position: relative;
+  width: fit-content;
 }
 .edu-timeline::before {
   content: "";
   position: absolute;
-  top: 34px;
-  left: 34px;
-  right: 34px;
+  top: 60px;
+  left: 54px;
+  right: 54px;
   height: 2px;
   background: repeating-linear-gradient(
     to right,
