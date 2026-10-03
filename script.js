@@ -83,3 +83,55 @@ if (filterBar) {
     });
   });
 }
+
+// =========================================================
+// LIGHTBOX GAMBAR
+// =========================================================
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const lightboxClose = document.getElementById("lightbox-close");
+const projectImages = document.querySelectorAll(".project-media img");
+
+if (lightbox && lightboxImg && lightboxClose) {
+  const closeLightbox = () => {
+    lightbox.classList.remove("opacity-100");
+    lightbox.classList.add("opacity-0");
+    lightboxImg.classList.remove("scale-100");
+    lightboxImg.classList.add("scale-95");
+    
+    // Tunggu transisi selesai sebelum hidden
+    setTimeout(() => {
+      lightbox.classList.add("hidden");
+      lightboxImg.src = "";
+    }, 300);
+  };
+
+  projectImages.forEach((img) => {
+    img.addEventListener("click", () => {
+      // Abaikan jika fallback
+      if (img.closest('.img-fallback') || img.parentElement.classList.contains('img-fallback')) return;
+      
+      lightboxImg.src = img.src;
+      lightbox.classList.remove("hidden");
+      
+      // Trigger reflow
+      void lightbox.offsetWidth;
+      
+      lightbox.classList.remove("opacity-0");
+      lightbox.classList.add("opacity-100");
+      lightboxImg.classList.remove("scale-95");
+      lightboxImg.classList.add("scale-100");
+    });
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !lightbox.classList.contains("hidden")) {
+      closeLightbox();
+    }
+  });
+}
