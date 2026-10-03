@@ -87,35 +87,6 @@
             <a href="cv.pdf" class="hidden sm:inline-flex btn-ghost"
               >Unduh CV</a
             >
-            <button
-              id="menu-toggle"
-              class="md:hidden btn-icon"
-              aria-label="Buka menu"
-              aria-expanded="false"
-            >
-              <svg
-                id="icon-burger"
-                class="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-              <svg
-                id="icon-close"
-                class="w-5 h-5 hidden"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              >
-                <path d="M6 6l12 12M18 6L6 18" />
-              </svg>
-            </button>
           </div>
         </div>
       </div>
@@ -449,6 +420,7 @@
                 lalu sesuaikan juga daftar <span class="tag-chip"> di dalam kartu.
              ====================================================== -->
           <div id="project-grid" class="mt-8 grid md:grid-cols-2 gap-6">
+            <!-- WareHaus -->
             <article
               class="project-card reveal"
               data-reveal
@@ -465,7 +437,7 @@
                 <div class="flex flex-wrap gap-2">
                   <span class="tag-chip">Flutter</span>
                   <span class="tag-chip">TypeScript</span>
-                  <span class="tag-chip"></span>
+                  <span class="tag-chip">.NET</span>
                 </div>
                 <h3 class="project-title">
                   WareHaus — Warehouse Management System
@@ -486,29 +458,193 @@
               </div>
             </article>
 
-            <!-- Slot placeholder — hapus kartu ini setelah menambahkan project berikutnya -->
+            <!-- Rumah Donasi -->
             <article
-              class="project-card project-card--empty reveal reveal-delay-1"
+              class="project-card reveal"
               data-reveal
+              data-tags="express"
             >
-              <div
-                class="project-body flex flex-col items-center justify-center text-center h-full py-14"
-              >
-                <span class="empty-icon">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M12 5v14M5 12h14" />
-                  </svg>
-                </span>
-                <p class="mt-3 font-display font-medium text-navy-800">
-                  Project berikutnya menyusul
+              <div class="project-media">
+                <img
+                  src="project-image/rumah_donasi.png"
+                  alt="Rumah Donasi"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <div class="project-body">
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag-chip">Web</span>
+                </div>
+                <h3 class="project-title">
+                  Rumah Donasi
+                </h3>
+                <p class="project-desc">
+                  Aplikasi web untuk manajemen donasi dan penyaluran bantuan kepada yang membutuhkan.
                 </p>
+                <a
+                  class="project-link"
+                  href="https://github.com/Rumah-Donasi/Web"
+                  target="_blank"
+                  rel="noopener"
+                  >Lihat GitHub</a
+                >
+              </div>
+            </article>
+
+            <!-- Room Bookings -->
+            <article
+              class="project-card reveal"
+              data-reveal
+              data-tags="dotnet typescript"
+            >
+              <div class="project-media">
+                <img
+                  src="project-image/room_bookings.png"
+                  alt="Room Bookings"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <div class="project-body">
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag-chip">.NET Backend</span>
+                  <span class="tag-chip">Frontend</span>
+                </div>
+                <h3 class="project-title">
+                  Room Bookings
+                </h3>
+                <p class="project-desc">
+                  Sistem pemesanan ruangan untuk mengelola jadwal dan ketersediaan ruang rapat.
+                </p>
+                <div class="flex flex-col gap-1 mt-3">
+                  <a class="project-link" href="https://github.com/Elight-dotcom/2026-room_bookings-frontend" target="_blank" rel="noopener">Frontend Repository</a>
+                  <a class="project-link" href="https://github.com/Elight-dotcom/2026-room_bookings-backend" target="_blank" rel="noopener">Backend Repository</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- App Pegawai -->
+            <article
+              class="project-card reveal"
+              data-reveal
+              data-tags="flutter"
+            >
+              <div class="project-media">
+                <img
+                  src="project-image/app_pegawai.png"
+                  alt="App Pegawai"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <div class="project-body">
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag-chip">Mobile App</span>
+                </div>
+                <h3 class="project-title">
+                  App Pegawai
+                </h3>
+                <p class="project-desc">
+                  Aplikasi mobile untuk mengelola data pegawai dan absensi.
+                </p>
+                <a
+                  class="project-link"
+                  href="https://github.com/Elight-dotcom/app-pegawai"
+                  target="_blank"
+                  rel="noopener"
+                  >Lihat GitHub</a
+                >
+              </div>
+            </article>
+
+            <!-- Komunitas Kampus -->
+            <article
+              class="project-card reveal"
+              data-reveal
+              data-tags="dotnet typescript"
+            >
+              <div class="project-media">
+                <img
+                  src="project-image/komunitas_kampus.png"
+                  alt="Komunitas Kampus"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <div class="project-body">
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag-chip">.NET Backend</span>
+                  <span class="tag-chip">Frontend</span>
+                </div>
+                <h3 class="project-title">
+                  Komunitas Kampus
+                </h3>
+                <p class="project-desc">
+                  Platform komunikasi dan informasi untuk komunitas mahasiswa di lingkungan kampus.
+                </p>
+                <div class="flex flex-col gap-1 mt-3">
+                  <a class="project-link" href="https://github.com/Elight-dotcom/komunitas_kampus-frontend" target="_blank" rel="noopener">Frontend Repository</a>
+                  <a class="project-link" href="https://github.com/Elight-dotcom/komunitas_kampus-backend" target="_blank" rel="noopener">Backend Repository</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Prediksi Saham -->
+            <article
+              class="project-card reveal"
+              data-reveal
+              data-tags="dotnet typescript"
+            >
+              <div class="project-media">
+                <img
+                  src="project-image/saham.png"
+                  alt="Prediksi Saham"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <div class="project-body">
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag-chip">.NET Backend</span>
+                  <span class="tag-chip">Frontend</span>
+                </div>
+                <h3 class="project-title">
+                  Prediksi Saham
+                </h3>
+                <p class="project-desc">
+                  Aplikasi analisis dan prediksi pergerakan harga saham menggunakan data historis.
+                </p>
+                <div class="flex flex-col gap-1 mt-3">
+                  <a class="project-link" href="https://github.com/Elight-dotcom/saham-frontend" target="_blank" rel="noopener">Frontend Repository</a>
+                  <a class="project-link" href="https://github.com/Elight-dotcom/saham-backend" target="_blank" rel="noopener">Backend Repository</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- StreamVid -->
+            <article
+              class="project-card reveal"
+              data-reveal
+              data-tags="dotnet typescript"
+            >
+              <div class="project-media">
+                <img
+                  src="project-image/streamvid.png"
+                  alt="StreamVid"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <div class="project-body">
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag-chip">.NET Backend</span>
+                  <span class="tag-chip">Frontend</span>
+                </div>
+                <h3 class="project-title">
+                  StreamVid
+                </h3>
+                <p class="project-desc">
+                  Platform streaming video smart tv friendly yang dapat play video dari penyimpanan local atau menggunakan magnet torrent link.
+                </p>
+                <div class="flex flex-col gap-1 mt-3">
+                  <a class="project-link" href="https://github.com/Elight-dotcom/streamvid-frontend" target="_blank" rel="noopener">Frontend Repository</a>
+                  <a class="project-link" href="https://github.com/Elight-dotcom/2026-stream_vid-backend" target="_blank" rel="noopener">Backend Repository</a>
+                </div>
               </div>
             </article>
           </div>
@@ -530,23 +666,64 @@
              Ganti src gambar dengan file logo resmi (mis. education-logo/pens.png),
              href sudah mengarah ke laman resmi PENS.
              ====================================================== -->
-          <div class="mt-10 edu-single reveal" data-reveal>
-            <a
-              href="https://www.pens.ac.id/"
-              target="_blank"
-              rel="noopener"
-              class="edu-logo edu-logo--lg"
-              title="Politeknik Elektronika Negeri Surabaya (PENS)"
-            >
-              <img
-                src="Logo_PENS.png"
-                alt="Logo Politeknik Elektronika Negeri Surabaya (PENS)"
-                onerror="this.parentElement.classList.add('img-fallback')"
-              />
-            </a>
-            <p class="edu-caption edu-caption--lg">
-              Politeknik Elektronika Negeri Surabaya (PENS)
-            </p>
+          <div class="edu-timeline reveal" data-reveal>
+            <!-- Kuliah -->
+            <div class="edu-item">
+              <span class="edu-step">Kuliah</span>
+              <a
+                href="https://www.pens.ac.id/"
+                target="_blank"
+                rel="noopener"
+                class="edu-logo"
+                title="Politeknik Elektronika Negeri Surabaya (PENS)"
+              >
+                <img
+                  src="Logo_PENS.png"
+                  alt="Logo Politeknik Elektronika Negeri Surabaya (PENS)"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </a>
+              <p class="edu-caption">PENS</p>
+            </div>
+
+            <!-- SMA -->
+            <div class="edu-item">
+              <span class="edu-step">SMA</span>
+              <div class="edu-logo" title="MAN Kota Surabaya">
+                <img
+                  src="logo_pendidikan/man_kota_surabaya.jpeg"
+                  alt="MAN Kota Surabaya"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <p class="edu-caption">MAN Kota Surabaya</p>
+            </div>
+
+            <!-- SMP -->
+            <div class="edu-item">
+              <span class="edu-step">SMP</span>
+              <div class="edu-logo" title="SMPN 1 Kota Surabaya">
+                <img
+                  src="logo_pendidikan/smpn_1_kota_surabaya.jpeg"
+                  alt="SMPN 1 Kota Surabaya"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <p class="edu-caption">SMPN 1 Surabaya</p>
+            </div>
+
+            <!-- SD -->
+            <div class="edu-item">
+              <span class="edu-step">SD</span>
+              <div class="edu-logo" title="SDI Kyai Amin">
+                <img
+                  src="logo_pendidikan/sdi_kyai_amin.png"
+                  alt="SDI Kyai Amin"
+                  onerror="this.parentElement.classList.add('img-fallback')"
+                />
+              </div>
+              <p class="edu-caption">SDI Kyai Amin</p>
+            </div>
           </div>
         </div>
       </section>
